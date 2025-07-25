@@ -1,7 +1,7 @@
 import type { ChatOptions } from '@n8n/chat/types';
 
 export const defaultOptions: ChatOptions = {
-	webhookUrl: 'http://localhost:5678',
+	webhookUrl: 'https://n8n-vip4.onrender.com/webhook/f4c8b045-f350-4684-bada-f5294524a0f2/chat',
 	webhookConfig: {
 		method: 'POST',
 		headers: {},
@@ -25,6 +25,7 @@ export const defaultOptions: ChatOptions = {
 		},
 	},
 	theme: {},
+	allowFileUploads: true,
 	enableStreaming: false,
 };
 

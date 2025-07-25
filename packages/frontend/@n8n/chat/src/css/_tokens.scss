@@ -1,34 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Nunito:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
 :root {
 	/* Colors */
-	--chat--color-primary: #e74266;
-	--chat--color-primary-shade-50: #db4061;
-	--chat--color-primary-shade-100: #cf3c5c;
-	--chat--color-secondary: #20b69e;
-	--chat--color-secondary-shade-50: #1ca08a;
+	--chat--color-primary: #41c4c3;
+	--chat--color-primary-shade-50: color-mix(in srgb, var(--chat--color-primary) 85%, black 15%);
+	--chat--color-primary-shade-100: color-mix(in srgb, var(--chat--color-primary) 70%, black 30%);
+	--chat--color-secondary: #579e75;
+	--chat--color-secondary-shade-50: color-mix(in srgb, var(--chat--color-secondary) 85%, black 15%);
 	--chat--color-white: #ffffff;
 	--chat--color-light: #f2f4f8;
-	--chat--color-light-shade-50: #e6e9f1;
-	--chat--color-light-shade-100: #c2c5cc;
+	--chat--color-light-shade-50: color-mix(in srgb, var(--chat--color-light) 90%, black 10%);
+	--chat--color-light-shade-100: color-mix(in srgb, var(--chat--color-light) 70%, black 30%);
 	--chat--color-medium: #d2d4d9;
-	--chat--color-dark: #101330;
+	--chat--color-dark: #092c29;
 	--chat--color-disabled: #777980;
 	--chat--color-typing: #404040;
 
 	/* Base Layout */
 	--chat--spacing: 1rem;
-	--chat--border-radius: 0.25rem;
+	--chat--border-radius: 0.5rem;
 	--chat--transition-duration: 0.15s;
-	--chat--font-family: (
-		-apple-system,
-		BlinkMacSystemFont,
-		'Segoe UI',
-		Roboto,
-		Oxygen-Sans,
-		Ubuntu,
-		Cantarell,
-		'Helvetica Neue',
-		sans-serif
-	);
+	--chat--font-family: 'Inter', 'Montserrat', 'Poppins', 'Nunito', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
 	/* Window Dimensions */
 	--chat--window--width: 400px;
@@ -36,14 +28,14 @@
 	--chat--window--bottom: var(--chat--spacing);
 	--chat--window--right: var(--chat--spacing);
 	--chat--window--z-index: 9999;
-	--chat--window--border: 1px solid var(--chat--color-light-shade-50);
+	--chat--window--border: 2px solid var(--chat--color-secondary);
 	--chat--window--border-radius: var(--chat--border-radius);
 	--chat--window--margin-bottom: var(--chat--spacing);
 
 	/* Header Styles */
 	--chat--header-height: auto;
 	--chat--header--padding: var(--chat--spacing);
-	--chat--header--background: var(--chat--color-dark);
+	--chat--header--background: var(--chat--color-secondary);
 	--chat--header--color: var(--chat--color-light);
 	--chat--header--border-top: none;
 	--chat--header--border-bottom: none;
@@ -59,10 +51,10 @@
 	--chat--message--border-radius: var(--chat--border-radius);
 	--chat--message-line-height: 1.5;
 	--chat--message--margin-bottom: calc(var(--chat--spacing) * 1);
-	--chat--message--bot--background: var(--chat--color-white);
-	--chat--message--bot--color: var(--chat--color-dark);
+	--chat--message--bot--background: var(--chat--color-secondary-shade-50);
+	--chat--message--bot--color: var(--chat--color-white);
 	--chat--message--bot--border: none;
-	--chat--message--user--background: var(--chat--color-secondary);
+	--chat--message--user--background: var(--chat--color-primary-shade-50);
 	--chat--message--user--color: var(--chat--color-white);
 	--chat--message--user--border: none;
 	--chat--message--pre--background: rgba(0, 0, 0, 0.05);
@@ -116,4 +108,26 @@
 	--chat--body--background: var(--chat--color-light);
 	--chat--footer--background: var(--chat--color-light);
 	--chat--footer--color: var(--chat--color-dark);
+}
+
+/* Scrollbar personalizada solo para el área de mensajes del chat */
+.chat-body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--chat--color-primary-shade-50) var(--chat--color-light);
+
+  /* Webkit (Chrome, Edge, Safari) */
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: var(--chat--color-light);
+    border-radius: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--chat--color-primary-shade-50);
+    border-radius: 8px;
+    border: 2px solid var(--chat--color-light);
+    transition: background 0.2s;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--chat--color-primary-shade-100);
+  }
 }
